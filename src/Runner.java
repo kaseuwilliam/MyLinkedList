@@ -16,8 +16,10 @@ public class Runner {
 		list.addLast("Mike");
 		list.addLast("Andrew");
 		list.addLast("Tom");
-		list.addLast("Sarah");
+		list.addLast("Zen");
 		list.addLast("Kevin");
+		list.addLast("Zen");
+		list.addLast("Sarah");
 		
 		list.reverse();
 		
@@ -26,11 +28,25 @@ public class Runner {
 		System.out.println(list.head.next.next.value);
 		System.out.println(list.head.next.next.next.value);
 		System.out.println(list.head.next.next.next.next.value);
+		System.out.println(list.head.next.next.next.next.next.value);
+		System.out.println(list.head.next.next.next.next.next.next.value);
 		
 		System.out.println("The head is "+list.head.value);
 		System.out.println("The tail is "+list.tail.value);
 		
-		System.out.println("hello".compareTo("z"));
+		System.out.println("hello".compareTo("hellos"));
+		
+		
+		
+		list.removeMaximumValues(0);
+		
+		System.out.println(list.head.value);
+		System.out.println(list.head.next.value);
+		System.out.println(list.head.next.next.value);
+		System.out.println(list.head.next.next.next.value);
+		System.out.println(list.head.next.next.next.next.value);
+		System.out.println(list.head.next.next.next.next.next.value);
+		
 		
 //		LinkedList<String> names = new LinkedList<String>();
 //		

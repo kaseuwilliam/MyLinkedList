@@ -170,12 +170,35 @@ public class MyLinkedList {
 		}
 	
 		tail = list.get(0);
+		list.get(0).next = null;
+		
 		}
 	}
 
 	public void removeMaximumValues(int N) {
-		/* IMPLEMENT THIS METHOD! */
-
+		
+		Node current = head;
+		
+		Node larger = head;
+		
+		int index = 0;
+		
+		int counter = 0;
+		
+		for(int i=0; i< size-1; i++) {
+			
+			if(current.value.compareTo(current.next.value)>0 && current.next != null && current.value.compareTo(larger.value)>0) {
+				
+				larger = current;
+				index = counter;
+				
+			} 
+			
+			current = current.next;
+			counter++;
+		}
+		
+		remove(index);
 	}
 	
 

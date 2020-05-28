@@ -136,11 +136,9 @@ public class MyLinkedList {
 
 	public void reverse() {
 
-		
 		ArrayList<Node> list = new ArrayList<Node>();
 		
 		Node current = head;
-		
 		
 		int counter = 0;
 		
@@ -152,8 +150,6 @@ public class MyLinkedList {
 			counter++;
 		}
 		
-		
-		
 		if(counter == 0) {
 			
 			throw new NullPointerException("The LinkedList is empty"); 
@@ -163,25 +159,16 @@ public class MyLinkedList {
 			
 		} else {
 		
-		//size to get index of list
-		int sizeOfArray = list.size() - 1;
-		
-		//head is last element of ArrayList
-	//	head = list.get(sizeOfArray);
-			
-		//need to start from the second last element in ArrayList
+	
 		for (int i= 0; i < list.size() ; i++) {
-			
-			//System.out.println("The value is: " +head.value);
 			
 			Node newNode = list.get(i);
 			
 	    	newNode.next = head;
 	    	head = newNode;	
 	    	
-	    	//System.out.println("The value is: " +head.value);
 		}
-		//head = list.get(sizeOfArray);
+	
 		tail = list.get(0);
 		}
 	}
@@ -199,5 +186,4 @@ public class MyLinkedList {
 	}
 	
 
-	
 }

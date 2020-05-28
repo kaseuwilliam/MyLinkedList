@@ -7,11 +7,17 @@ public class Runner {
 		
 		MyLinkedList list = new MyLinkedList();
 		
-		list.addFirst("Mike");
-		list.addFirst("Andrew");
-		list.addFirst("Tom");
-		list.addFirst("Sarah");
-		list.addFirst("Kevin");
+//		list.addFirst("Mike");
+//		list.addFirst("Andrew");
+//		list.addFirst("Tom");
+//		list.addFirst("Sarah");
+//		list.addFirst("Kevin");
+		
+		list.addLast("Mike");
+		list.addLast("Andrew");
+		list.addLast("Tom");
+		list.addLast("Sarah");
+		list.addLast("Kevin");
 		
 		list.reverse();
 		
@@ -23,6 +29,8 @@ public class Runner {
 		
 		System.out.println("The head is "+list.head.value);
 		System.out.println("The tail is "+list.tail.value);
+		
+		System.out.println("hello".compareTo("z"));
 		
 //		LinkedList<String> names = new LinkedList<String>();
 //		

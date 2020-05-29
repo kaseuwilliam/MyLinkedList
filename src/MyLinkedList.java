@@ -1,3 +1,4 @@
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public class MyLinkedList {
@@ -178,17 +179,90 @@ public class MyLinkedList {
 
 	public void removeMaximumValues(int N) {
 
-		for (int i = 0; i < N; i++) {
+		if (N != (int) N) {
 
-			compareToRemover();
+			throw new InvalidParameterException();
 		}
 
+		if (N > size) {
+
+			throw new IndexOutOfBoundsException(
+					"The size of removed elements is larger than the size of the LinkedList");
+		} 
+		
+		else {
+			for (int i = 0; i < N; i++) {
+
+				compareToRemover();
+			}
+		}
 	}
 
+	
 	public boolean containsSubsequence(MyLinkedList two) {
-		/* IMPLEMENT THIS METHOD! */
-
-		return false;
+		
+		if(two.head == null) {
+			
+			return false;
+		}
+		
+		if(two.size > size) {
+			
+			return false;
+		}
+		
+		
+		ArrayList<Node> list = new ArrayList<Node>();
+		
+		Node currentForListTwo = two.head;
+		
+		// fill array will nodes from list 2
+		
+		while(currentForListTwo != null) {
+			
+			list.add(currentForListTwo);
+			
+			currentForListTwo = currentForListTwo.next;
+		}
+		
+		
+		Node startOfSequence = head;
+		
+		Node current = head;
+		
+		
+		while(current != null) {
+			
+			if(current.value.equals(two.head.value)) {
+				
+				startOfSequence = current;
+				break;
+			}
+			
+			current = current.next;
+		}
+		
+		
+		
+		boolean parameter = true;
+		
+		
+		for(int i= 0 ; i< list.size(); i++) {
+			
+			if(startOfSequence != null) {
+			if(! startOfSequence.value.equals(list.get(i).value)) {
+				
+				parameter = false;
+				
+				break;
+			}
+			
+			startOfSequence = startOfSequence.next;
+			}
+		}
+		
+		
+		return parameter;
 	}
 
 	public void compareToRemover() {
@@ -198,9 +272,9 @@ public class MyLinkedList {
 		} else {
 
 			Node current = head;
-			
+
 			Node larger = head;
-			
+
 			int index = 0;
 
 			int counter = 0;
@@ -209,26 +283,23 @@ public class MyLinkedList {
 
 				remove(0);
 
-			} else if(current.next.next == null) {
-				
-				if(current.value.compareTo(current.next.value) > 0) {
-				
-					remove(1);
+			} else if (current.next.next == null) {
+
+				if (current.value.compareTo(current.next.value) > 0) {
+
+					remove(0);
 				} else {
-					
-					remove (0);
+
+					remove(1);
 				}
-				
-			}
-				else {
-			
-				
+
+			} else {
+
 				// create a method to deal when there's 2 nodes left
-				
+
 				for (int i = 0; i < size - 1; i++) {
 
-					if (current.value.compareTo(current.next.value) > 0 && current.next != null
-							&& current.value.compareTo(larger.value) > 0) {
+					if (current.value.compareTo(current.next.value) > 0 && current.value.compareTo(larger.value) > 0) {
 
 						larger = current;
 						index = counter;
